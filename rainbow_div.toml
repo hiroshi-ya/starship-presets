@@ -1,0 +1,273 @@
+#"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](fg:lv0)\
+[$os](fg:rv0 bg:lv0)\
+$username\
+[ ](bg:lv0 fg:lv1)\
+[$directory](bold bg:lv1 fg:rv1)\
+(\
+    [ ](bg:prev_bg fg:lv2)\
+    [$git_branch](bold bg:lv2 fg:rv2)\
+    [$git_status](bold bg:lv2 fg:rv2)\
+)\
+(\
+    [ ](bg:prev_bg fg:lv3)\
+    [\
+        $c\
+        $cpp\
+        $rust\
+        $golang\
+        $nodejs\
+        $php\
+        $java\
+        $kotlin\
+        $haskell\
+        $python\
+    ](bold bg:lv3 fg:rv3)\
+)\
+(\
+    [ ](bg:prev_bg fg:lv4)\
+    [\
+        $docker_context\
+        $conda\
+        $pixi\
+    ](bold bg:lv4 fg:rv4)\
+)\
+[ ](bg:prev_bg fg:lv5)\
+[$time](bold bg:lv5 fg:rv5)\
+[ ](fg:lv5)\
+$line_break\
+$character"""
+
+palette = 'vibrant'
+add_newline = false
+
+[palettes.teal]
+lv0 = "#b9fbc0"
+lv1 = "#98f5e1"
+lv2 = "#8eecf5"
+lv3 = "#90dbf4"
+lv4 = "#a3c4f3"
+lv5 = "#cfbaf0"
+rv0 = "#498B50"
+rv1 = "#288571"
+rv2 = "#1E7C85"
+rv3 = "#206B84"
+rv4 = "#335483"
+rv5 = "#5F4A80"
+
+[palettes.vibrant]
+lv0 = "#77B9E0"
+lv1 = "#6365CF"
+lv2 = "#BA7DDB"
+lv3 = "#FF739D"
+lv4 = "#FFEE87"
+lv5 = "#A6CF63"
+rv0 = "#175980"
+rv1 = "#DFFFEF"
+rv2 = "#5A1D7B"
+rv3 = "#FFE3ED"
+rv4 = "#8F7E17"
+rv5 = "#466F03"
+
+[palettes.pastel]
+lv0 = "#F8D4CE"
+lv1 = "#DFC6DE"
+lv2 = "#9EABD6"
+lv3 = "#92CEEE"
+lv4 = "#C3E8B5"
+lv5 = "#FFEEB8"
+rv0 = "#8E6A64"
+rv1 = "#755C74"
+rv2 = "#34416C"
+rv3 = "#286484"
+rv4 = "#597E4B"
+rv5 = "#95844E"
+
+[os]
+disabled = false
+format = ' $symbol'
+# style = "bg:color_orange fg:color_fg0"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = ""
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = ""
+Gentoo = ""
+Fedora = ""
+Alpine = ""
+Amazon = ""
+Android = ""
+AOSC = ""
+Arch = ""
+Artix = ""
+EndeavourOS = ""
+CentOS = ""
+Debian = ""
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[username]
+show_always = true
+style_user = "bold bg:lv0 fg:rv0"
+style_root = "bold bg:lv0 fg:black"
+format = '[ $user]($style)'
+
+# [directory]
+# # style = "fg:color_fg0 bg:color_yellow"
+# format = "[ $path ]($style)"
+# truncation_length = 3
+# truncation_symbol = "…/"
+
+[directory]
+# style = "fg:color_fg0 bg:color_yellow"
+format = " $path"
+truncation_length = 5
+truncation_symbol = "/"
+truncate_to_repo = false
+home_symbol = ' '
+repo_root_style = "bold bg:lv1 fg:rv1"
+before_repo_root_style = ""
+repo_root_format = """ [󰊢 ](bg:lv1 fg:rv1)\
+    [$repo_root]($repo_root_style)\
+    $path\
+    [$read_only]($read_only_style)\
+"""
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+# [directory.substitutions]
+# "Documents" = "󰈙 "
+# "Downloads" = " "
+# "Music" = "󰝚 "
+# "Pictures" = " "
+# "Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+# style = "bg:color_aqua"
+format = ' $symbol $branch'
+
+
+[git_commit]
+# style ="fg:rv2 bg:lv2"
+format = ' \($hash$tag\)'
+tag_disabled = false
+# only_detached = false
+tag_symbol = "  "
+tag_max_candidates = 3
+
+[git_status]
+# style = "bg:color_aqua"
+format = '$all_status$ahead_behind'
+conflicted = '  '
+ahead = '  +($count)'
+behind = ' 󱙷 +($count)'
+diverged = ' \[󰃻 :  ${count}  ${count}\]' #'[ 󰃻 :󱞽 ${ahead_count} 󱞣 ${behind_count}](gitdiverged)'
+up_to_date = '  '
+untracked = '  +($count)'
+stashed = ' 󱧘 +($count)'
+modified = '  +($count)'
+staged = '  +($count)'
+renamed = '  +($count)'
+deleted = '  +($count)'
+
+[nodejs]
+symbol = ""
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[c]
+symbol = " "
+# style = "bg:color_blue"
+format = ' $symbol$name $version'
+commands = [ [ "clang", "--version" ], [ "cc", "--version" ], [ "gcc", "--version" ] ]
+detect_extensions = ["c", "!cpp", "!cxx", "!cc", "!hpp"]
+
+[cpp]
+disabled = false
+symbol = " "
+# style = "bg:color_blue"
+format = ' $symbol$name $version'
+commands = [ [ "clang++", "--version" ], [ "cc", "--version" ], [ "g++", "--version" ]]
+
+[rust]
+symbol = " "
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[golang]
+symbol = "󰟓 "
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[php]
+symbol = " "
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[java]
+symbol = " "
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[kotlin]
+symbol = " "
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[haskell]
+symbol = " "
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[python]
+symbol = " "
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[docker_context]
+symbol = " "
+# style = "bg:color_bg3"
+format = ' $symbol$version'
+
+[conda]
+symbol = " "
+ignore_base = false
+# symbol = " "
+# style = "bold #43B049"
+format = ' $symbol$environment'
+
+[pixi]
+# style = "bg:color_bg3"
+format = ' $symbol( $version)( $environment)'
+
+[time]
+disabled = false
+time_format = "%R"
+# style = "bg:color_bg1"
+format = '  $time '
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[\$](bold fg:lv0)'
+error_symbol = '[\$](bold fg:red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
