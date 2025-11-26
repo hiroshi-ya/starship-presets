@@ -57,7 +57,7 @@ disabled = false
 Windows = "[󰍲](fg:#0173D0)"
 Ubuntu = "[](fg:#E95420)"
 SUSE = "[](fg:#30B878)"
-Raspbian = "[󰐿](fg:#C2053B)"
+Raspbian = "[](fg:#CD1D55)"
 Mint = "[󰣭](fg:#86BE43)"
 Macos = "[󰀵](fg:#8D8D8D)"
 Manjaro = "[](fg:#34be5b)"
@@ -65,8 +65,8 @@ Linux = "[](fg:#F7C631)"
 Gentoo = "[](fg:#6E56AF)"
 Fedora = "[](fg:#51A2DA)"
 Alpine = "[](fg:#0D597F)"
-Amazon = "[](fg:#F69400)"
-Android = "[](fg:#78C257)"
+Amazon = "[󰸏](fg:#FF9900)"
+Android = "[](fg:#3ddc84)"
 AOSC = "[](fg:#C00000)"
 Arch = "[](fg:#1793D1)"
 Artix = "[](fg:#0797CF)"
@@ -94,7 +94,7 @@ repo_root_style = "bold lv3"
 before_repo_root_style = ""
 repo_root_format = """ [󰊢 ](lv3)\
     [$repo_root]($repo_root_style)\
-    [$path]($style)\
+    [$path]($bold cyan)\
     [$read_only]($read_only_style)[ on](lv0)\
 """
 
@@ -196,7 +196,7 @@ format = ' [$symbol($version)]($style)'
 [docker_context]
 symbol = " "
 style = "bold #1D63ED"
-format = ' [$symbol($version)]($style)'
+format = ' [$symbol($context)]($style)'
 
 [conda]
 symbol = " "
@@ -206,8 +206,9 @@ style = "bold #43B049"
 format = ' [$symbol($environment)]($style)'
 
 [pixi]
+symbol = " "
 style = "bold #FFD43B"
-format = ' [$symbol( $version)( $environment)]($style)'
+format = ' [$symbol($version)( $environment)]($style)'
 
 [time]
 disabled = false
