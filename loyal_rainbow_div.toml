@@ -1,0 +1,370 @@
+#"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """\
+    $os\
+    $username\
+    $directory\
+    (\
+        [ ](bg:prev_bg fg:repofg)\
+        [$git_branch](bold bg:repofg fg:repobg)\
+        [$git_commit](bg:repofg fg:green)\
+        $git_status\
+    )\
+    $c\
+    $cpp\
+    $rust\
+    $golang\
+    $nodejs\
+    $php\
+    $java\
+    $kotlin\
+    $haskell\
+    $python\
+    \
+    $docker_context\
+    $conda\
+    $pixi\
+    \
+    [ ](bg:prev_bg fg:timebg)\
+    [$time](bold bg:timebg fg:timefg)\
+    [ ](fg:timebg)\
+    $line_break\
+    $character\
+"""
+
+palette = 'loyal'
+add_newline = false
+
+[palettes.loyal]
+###########################
+# OS color
+winbg = "#0173D0"
+winfg = "#F7F7F7"
+winsc = "#F7F7F7"
+ubuntubg = "#E95420"
+ubuntufg = "#F7F7F7"
+ubuntusc = "#F7F7F7"
+susesc = "#0C322C"
+susebg = "#30B878"
+susefg = "#0C322C"
+rasbg = "#CD1D55"
+rasfg = "#000000"
+rassc = "#45AD4A"
+mintbg = "#69B53F"
+mintfg = "#FFFFFF"
+mintsc = "#FFFFFF"
+applebg = "#E7E7E7"
+applefg = "#636363"
+applesc = "#636363"
+manjbg = "#35BFA4"
+manjfg = "#F7F7F7"
+manjsc = "#F7F7F7"
+linuxbg = "#F7C631"
+linuxfg = "#000000"
+linuxsc = "#000000"
+gentoobg = "#DDDFFF"
+gentoofg = "#6E56AF"
+gentoosc = "#54487A"
+fedorabg = "#51A2DA"
+fedorafg = "#FFFFFF"
+fedorasc = "#FFFFFF"
+alpinebg = "#EDEDEF"
+alpinefg = "#0D597F"
+alpinesc = "#0D597F"
+awsbg = "#FF9900"
+awsfg = "#252F3E"
+awssc = "#FFFFFF"
+androidfg = "#FFFFFF"
+androidbg = "#78C257"
+androidsc = "#FFFFFF"
+aoscbg = "#FFC000"
+aoscfg = "#C00000"
+aoscsc = "#0070C0"
+archbg = "#1793D1"
+archfg = "#FFFFFF"
+archsc = "#FFFFFF"
+artixbg = "#33A9D7"
+artixfg = "#FFFFFF"
+artixsc = "#000000"
+endbg = "#E6DDEF"
+endfg = "#7F3FbF"
+endsc = "#7F7FFF"
+centfg = "#FFFFFF"
+centbg = "#A14F8C"
+centsc = "#EFA724"
+debbg = "#CE0056"
+debfg = "#FFFFFF"
+debsc = "#FFFFFF"
+redhatbg = "#E70000"
+redhatfg = "#FFFFFF"
+redhatsc = "#FFFFFF"
+redhatebg = "#FFFFFF"
+redhatefg = "#E70000"
+redhatesc = "#000000"
+popbg = "#46B3C1"
+popfg = "#FFFFFF"
+popsc = "#FFFFFF"
+###########################
+# path color & repo color
+pathbg = "#DE8100"
+pathfg = "#7E2100"
+repobg = "#F34F29"
+repofg = "#730000"
+repopathfg = "#CCF5FE"
+gitahead = '#00aaff'
+gitconflict = '#ff0000'
+gitdiverged = '#c8c800'
+gitbehind = '#a3e2a3'
+gituptodate = '#5bdd5b'
+gituntracked = '#fbff00'
+gitstashed = '#de8100'
+gitmodified = '#91f8ff'
+gitstaged = '#61ffba'
+gitdeleted = '#a5a5a5'
+###########################
+# language color
+cbg = "#6395CC"
+csc = "#004482"
+cfg = "#004482"
+ctr = "#00599C"
+rustbg = "#2B3256"
+rustfg = "#D44C27"
+gofg = "#00ADD8"
+gobg = "#FBDE08"
+phpbg = "#8892BE"
+phpfg = "#FFFFFF"
+javabg = "#f89820"
+javafg = "#007396"
+kotlinbg = "#F1850B"
+kotlinfg = "#8746F2"
+haskellbg = "#9E358F"
+haskellfg = "#453A62"
+pythonbg = "#FFD43B"
+pythonfg = "#306998"
+dockerbg = "#1D63ED"
+dockerfg = "#E5F2FC"
+condafg = "#CCFFCC"
+condabg = "#43B049"
+pixibg = "#778292"
+pixifg = "#F9C405"
+###########################
+timebg = "#6C4432"
+timefg = "#E3C79F"
+
+[os]
+disabled = false
+format = '$symbol'
+# style = "bg:color_orange fg:color_fg0"
+
+[os.symbols]
+Windows = "[](fg:winbg)[ 󰍲](fg:winfg bg:prev_fg)[ ](fg:winsc bg:prev_bg)"
+Ubuntu = "[](fg:ubuntubg)[ ](fg:ubuntufg bg:prev_fg)[ ](fg:ubuntusc bg:prev_bg)"
+SUSE = "[](fg:susebg)[ ](fg:susefg bg:prev_fg)[ ](fg:susesc bg:prev_bg)"
+Raspbian = "[](fg:rasbg)[ ](fg:rasfg bg:prev_fg)[ ](fg:rassc bg:prev_bg)"
+Mint = "[](fg:mintbg)[ 󰣭](fg:mintfg bg:prev_fg)[ ](fg:mintsc bg:prev_bg)"
+Macos = "[](fg:applebg)[ 󰀵](fg:applefg bg:prev_fg)[ ](fg:applesc bg:prev_bg)"
+Manjaro = "[](fg:manjbg)[ ](fg:manjfg bg:prev_fg)[ ](fg:manjsc bg:prev_bg)"
+Linux = "[](fg:linuxbg)[ ](fg:linuxfg bg:prev_fg)[ ](fg:linuxsc bg:prev_bg)"
+Gentoo = "[](fg:gentoobg)[ ](fg:gentoofg bg:prev_fg)[ ](fg:gentoosc bg:prev_bg)"
+Fedora = "[](fg:fedorabg)[ ](fg:fedorafg bg:prev_fg)[ ](fg:fedorasc bg:prev_bg)"
+Alpine = "[](fg:alpinebg)[ ](fg:alpinefg bg:prev_fg)[ ](fg:alpinesc bg:prev_bg)"
+Amazon = "[](fg:awsbg)[ ](fg:awsfg bg:prev_fg)[ ](fg:awssc bg:prev_bg)"
+Android = "[](fg:androidbg)[ ](fg:androidfg bg:prev_fg)[ ](fg:androidsc bg:prev_bg)"
+AOSC = "[](fg:aoscbg)[ ](fg:aoscfg bg:prev_fg)[ ](fg:aoscsc bg:prev_bg)"
+Arch = "[](fg:archbg)[ ](fg:archfg bg:prev_fg)[ ](fg:archsc bg:prev_bg)"
+Artix = "[](fg:artixbg)[ ](fg:artixfg bg:prev_fg)[ ](fg:artixsc bg:prev_bg)"
+EndeavourOS = "[](fg:endbg)[ ](fg:endfg bg:prev_fg)[ ](fg:endsc bg:prev_bg)"
+CentOS = "[](fg:centbg)[ ](fg:centfg bg:prev_fg)[ ](fg:centsc bg:prev_bg)"
+Debian = "[](fg:debbg)[ ](fg:debfg bg:prev_fg)[ ](fg:debsc bg:prev_bg)"
+Redhat = "[](fg:redhatbg)[ 󱄛](fg:redhatfg bg:prev_fg)[ ](fg:redhatsc bg:prev_bg)"
+RedHatEnterprise = "[](fg:redhatebg)[ 󱄛](fg:redhatefg bg:prev_fg)[ ](fg:redhatesc bg:prev_bg)"
+Pop = "[](fg:popbg)[ ](fg:popfg bg:prev_fg)[ ](fg:popsc bg:prev_bg)"
+
+[username]
+show_always = true
+style_user = "bold bg:prev_bg fg:prev_fg"
+style_root = "bold bg:prev_bg fg:black"
+format = '[$user]($style)'
+
+[directory]
+format = """\
+    [ ](bg:prev_bg fg:pathbg)\
+    [ $path](bold bg:pathbg fg:pathfg)\
+"""
+truncation_length = 5
+truncation_symbol = "/"
+truncate_to_repo = true
+home_symbol = ' '
+repo_root_style = "bold bg:repobg fg:repofg"
+read_only = '󰌾 '
+read_only_style = "bold bg:repobg fg:#FF0000"
+before_repo_root_style = ""
+repo_root_format = """\
+    [ ](bg:prev_bg fg:repobg)\
+    [ 󰊢 $repo_root]($repo_root_style)\
+    [$path](bold bg:repobg fg:repopathfg)\
+    [$read_only]($read_only_style)\
+"""
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+# style = "bg:color_aqua"
+format = ' $symbol $branch'
+
+
+[git_commit]
+# style ="fg:rv2 bg:lv2"
+format = ' \($hash$tag\)'
+tag_disabled = false
+# only_detached = false
+tag_symbol = "  "
+tag_max_candidates = 3
+
+[git_status]
+format = '$all_status$ahead_behind'
+conflicted = '[  ](bold gitconflict bg:repofg)'
+ahead = '[  +($count)](bold gitahead bg:repofg)'
+behind = '[ 󱙷 +($count)](bold gitbehind bg:repofg)'
+diverged = '[ \[󰃻 : [ ${ahead_count}](bold gitahead bg:repofg) [ ${behind_count}](bold gitbehind bg:repofg)\]](gitdiverged bg:repofg)' #'[ 󰃻 :󱞽 ${ahead_count} 󱞣 ${behind_count}](gitdiverged)'
+up_to_date = '[  ](gituptodate bg:repofg)'
+untracked = '[  +($count)](bold gituntracked bg:repofg)'
+stashed = '[ 󱧘 +($count)](bold gitstashed bg:repofg)'
+modified = '[  +($count)](bold gitmodified bg:repofg)'
+staged = '[  +($count)](bold gitstaged bg:repofg)'
+renamed = '[  +($count)](bold gitmodified bg:repofg)'
+deleted = '[  +($count)](bold gitdeleted bg:repofg)'
+
+[nodejs]
+symbol = ""
+# style = "bg:color_blue"
+format = ' $symbol$version'
+
+[c]
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:cbg)\
+    [ $symbol](bg:cbg fg:cfg)\
+    [$name](bold bg:cbg fg:csc)\
+    [ $version](bold bg:cbg fg:ctr)\
+"""
+commands = [ [ "clang", "--version" ], [ "cc", "--version" ], [ "gcc", "--version" ] ]
+detect_extensions = ["c", "!cpp", "!cxx", "!cc", "!hpp"]
+
+[cpp]
+disabled = false
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:cbg)\
+    [ $symbol](bg:cbg fg:cfg)\
+    [$name](bold bg:cbg fg:csc)\
+    [ $version](bold bg:cbg fg:ctr)\
+"""
+commands = [ [ "clang++", "--version" ], [ "cc", "--version" ], [ "g++", "--version" ]]
+
+[rust]
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:rustbg)\
+    [ $symbol](bg:rustbg fg:rustfg)\
+    [$version](bold bg:prev_bg fg:prev_fg)\
+"""
+
+[golang]
+symbol = "󰟓 "
+format ="""\
+    [ ](bg:prev_bg fg:gobg)\
+    [ $symbol](bg:gobg fg:gofg)\
+    [$version](bold bg:prev_bg fg:gofg)\
+"""
+
+[php]
+symbol = "󰌟 "
+format ="""\
+    [ ](bg:prev_bg fg:phpbg)\
+    [ $symbol](bg:phpbg fg:phpfg)\
+    [$version](bold bg:prev_bg fg:prev_fg)\
+"""
+
+[java]
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:javabg)\
+    [ $symbol](bg:javabg fg:javafg)\
+    [$version](bold bg:prev_bg fg:prev_fg)\
+"""
+
+[kotlin]
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:kotlinbg)\
+    [ $symbol](bg:kotlinbg fg:kotlinfg)\
+    [$version](bold bg:prev_bg fg:prev_fg)\
+"""
+
+[haskell]
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:haskellbg)\
+    [ $symbol](bg:haskellbg fg:haskellfg)\
+    [$version](bold bg:prev_bg fg:prev_fg)\
+"""
+
+[python]
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:pythonbg)\
+    [ $symbol](bg:pythonbg fg:pythonfg)\
+    [$version](bold bg:prev_bg fg:prev_fg)\
+"""
+
+[docker_context]
+symbol = "󰡨 "
+format ="""\
+    [ ](bg:prev_bg fg:dockerbg)\
+    [ $symbol](bg:dockerbg fg:dockerfg)\
+    [$context](bold bg:prev_bg fg:prev_fg)\
+"""
+
+[conda]
+# symbol = " "
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:condabg)\
+    [ $symbol](bg:condabg fg:condafg)\
+    [$environment](bold bg:prev_bg fg:prev_fg)\
+"""
+ignore_base = false
+
+[pixi]
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:pixibg)\
+    [ $symbol](bg:pixibg fg:pixifg)\
+    [$version](bg:prev_bg fg:prev_fg)\
+    [ $environment](bold bg:prev_bg fg:prev_fg)\
+"""
+
+[time]
+disabled = false
+time_format = "%R"
+# style = "bg:color_bg1"
+format = '  $time '
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[\$](bold fg:green)'
+error_symbol = '[\$](bold fg:red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
