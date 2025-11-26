@@ -1,6 +1,6 @@
 #"$schema" = 'https://starship.rs/config-schema.json'
 
-format = """
+format = """\
 [](fg:lv0)\
 [$os](fg:rv0 bg:lv0)\
 $username\
@@ -241,7 +241,7 @@ format = ' $symbol$version'
 [docker_context]
 symbol = " "
 # style = "bg:color_bg3"
-format = ' $symbol$version'
+format = ' $symbol$context'
 
 [conda]
 symbol = " "
@@ -251,8 +251,9 @@ ignore_base = false
 format = ' $symbol$environment'
 
 [pixi]
+symbol = " "
 # style = "bg:color_bg3"
-format = ' $symbol( $version)( $environment)'
+format = ' $symbol($version)( $environment)'
 
 [time]
 disabled = false
