@@ -26,7 +26,7 @@ format = """\
     $pixi\
     \
     [ ](bg:prev_bg fg:timebg)\
-    [$time](bold bg:timebg fg:timefg)\
+    [$cmd_duration$time](bold bg:timebg fg:timefg)\
     [ ](fg:timebg)\
     $line_break\
     $character\
@@ -368,3 +368,8 @@ vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
 vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[cmd_duration]
+min_time = 2_000
+show_milliseconds = true
+format = " 󰜎 $duration"
