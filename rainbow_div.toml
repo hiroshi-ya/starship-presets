@@ -185,7 +185,7 @@ renamed = '  +($count)'
 deleted = '  +($count)'
 
 [nodejs]
-symbol = ""
+symbol = " "
 # style = "bg:color_blue"
 format = ' $symbol$version'
 
