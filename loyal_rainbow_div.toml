@@ -147,6 +147,8 @@ condafg = "#CCFFCC"
 condabg = "#43B049"
 pixibg = "#778292"
 pixifg = "#F9C405"
+nodebg = "#66CC33"
+nodefg = "#336633"
 ###########################
 timebg = "#6C4432"
 timefg = "#E3C79F"
@@ -242,9 +244,12 @@ renamed = '[  +($count)](bold gitmodified bg:repofg)'
 deleted = '[  +($count)](bold gitdeleted bg:repofg)'
 
 [nodejs]
-symbol = ""
-# style = "bg:color_blue"
-format = ' $symbol$version'
+symbol = " "
+format ="""\
+    [ ](bg:prev_bg fg:nodebg)\
+    [ $symbol](bg:nodebg fg:nodefg)\
+    [$version](bold bg:prev_bg fg:prev_fg)\
+"""
 
 [c]
 symbol = " "
