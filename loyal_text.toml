@@ -84,7 +84,7 @@ show_always = true
 format = ' $user'
 
 [hostname]
-ssh_symbol = ''
+ssh_symbol = ''
 format = ' $ssh_symbol $hostname'
 
 [directory]
