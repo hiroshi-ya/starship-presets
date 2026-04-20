@@ -40,7 +40,7 @@ $username\
 $line_break\
 $character"""
 
-palette = 'vibrant'
+palette = 'pastel'
 add_newline = false
 
 [palettes.teal]
