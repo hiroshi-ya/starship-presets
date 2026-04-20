@@ -349,11 +349,12 @@ ignore_base = false
 
 [pixi]
 symbol = " "
-format ="""\
+format ="""(\
     [ ](bg:prev_bg fg:prev_fg)[](bg:prev_bg fg:pixibg)\
     [ $symbol](bg:pixibg fg:pixifg)\
-    [$version](bg:prev_bg fg:prev_fg)\
-    [ $environment](bold bg:prev_bg fg:prev_fg)\
+    [$version](bold bg:prev_bg fg:prev_fg)\
+    )\
+    [( $environment)](bold bg:prev_bg fg:prev_fg)\
 """
 
 [time]

@@ -212,7 +212,7 @@ format = ' [$symbol($environment)]($style)'
 [pixi]
 symbol = " "
 style = "bold #FFD43B"
-format = ' [$symbol($version)( $environment)]($style)'
+format = '[( $symbol($version))( $environment)]($style)'
 
 [time]
 disabled = false

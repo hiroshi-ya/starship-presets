@@ -253,7 +253,7 @@ format = ' $symbol$environment'
 [pixi]
 symbol = " "
 # style = "bg:color_bg3"
-format = ' $symbol($version)( $environment)'
+format = '( $symbol($version))( $environment)'
 
 [time]
 disabled = false
