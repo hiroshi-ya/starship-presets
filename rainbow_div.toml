@@ -129,11 +129,13 @@ format = '[ $user]($style)'
 
 [directory]
 # style = "fg:color_fg0 bg:color_yellow"
-format = " $path"
+format = " $path[$read_only]($read_only_style)"
 truncation_length = 5
 truncation_symbol = "/"
 truncate_to_repo = false
 home_symbol = ' '
+read_only = ' 󰉐'
+read_only_style = "bold bg:prev_bg fg:#FF8080"
 repo_root_style = "bold bg:lv1 fg:rv1"
 before_repo_root_style = ""
 repo_root_format = """ [󰊢 ](bg:lv1 fg:rv1)\
