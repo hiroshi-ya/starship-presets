@@ -1,7 +1,16 @@
 # A bash function that randomly select a starship `toml` config
 # under the `config_dir`. Specify your `config_dir`, source it
-# in your bashrc, and call the function to export
-# `STARSHIP_CONFIG`.
+# in your bashrc, and call the function to export a random
+# `STARSHIP_CONFIG`. It will load all `.toml` files in the
+# specified directory, so don't put any invalid `.toml` file
+# in the destination.
+
+# Example usage:
+#   In your bashrc:
+#   ```
+#   source /path/to/random_starship_config.sh
+#   random_starship_config /path/to/your/configs # or modify the path below and don't pass any argument
+#   ```
 
 random_starship_config() {
     local config_dir="${1:-$HOME/path/to/your/configs}"
